@@ -12,6 +12,7 @@
             </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+        <RankViewQuery @search="search"></RankViewQuery>
 
         <!-- the grid -->
         <wj-flex-grid
@@ -65,6 +66,7 @@
 </template>
 
 <script>
+import RankViewQuery from '../components/RankViewQuery.vue';
 import Rank from '../components/Rank.vue'
 
 const axios = require('axios').default;
@@ -84,6 +86,7 @@ export default {
     name : 'rank-grid',
     mixins:[Rank],
     components:{
+        RankViewQuery,
         Rank,
     },
     data: () => ({

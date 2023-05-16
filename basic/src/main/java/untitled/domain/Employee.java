@@ -33,8 +33,8 @@ public class Employee {
     )
     private DepartmentId departmentId;
 
-    @Embedded
-    private EmployeeUser employeeUser;
+    @ElementCollection
+    private List<EmployeeUser> employeeUser;
 
     @PostPersist
     public void onPostPersist() {

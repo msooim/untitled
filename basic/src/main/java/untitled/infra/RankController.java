@@ -23,7 +23,7 @@ public class RankController {
 
 
     @PutMapping("/ranks/search/")
-    public Object (@RequestBody  query){
-        return rankRepository.();
+    public Object (@RequestBody RankViewQuery query){
+        return rankRepository.(query.getName());
     }
 }

@@ -80,7 +80,7 @@
                     'userId': '',
                     'rankId': {},
                     'departmentId': {},
-                    'employeeUser': {},
+                    'employeeUser': [],
                 }
             },
 

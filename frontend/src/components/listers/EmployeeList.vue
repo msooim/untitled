@@ -106,7 +106,7 @@
                 'userId': '',
                 'rankId': {},
                 'departmentId': {},
-                'employeeUser': {},
+                'employeeUser': [],
             }
         },
         methods: {

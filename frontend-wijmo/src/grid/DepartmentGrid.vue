@@ -12,6 +12,7 @@
             </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+        <DepartmentViewQuery @search="search"></DepartmentViewQuery>
 
         <!-- the grid -->
         <wj-flex-grid
@@ -65,6 +66,7 @@
 </template>
 
 <script>
+import DepartmentViewQuery from '../components/DepartmentViewQuery.vue';
 import Department from '../components/Department.vue'
 
 const axios = require('axios').default;
@@ -84,6 +86,7 @@ export default {
     name : 'department-grid',
     mixins:[Department],
     components:{
+        DepartmentViewQuery,
         Department,
     },
     data: () => ({

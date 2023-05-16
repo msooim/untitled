@@ -32,10 +32,12 @@
         >
             <wj-flex-grid-filter :filterColumns="['userId','rankId','departmentId','employeeUser',]" />
             <wj-flex-grid-column binding="index" header="Number" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="employeeUser[0].name" header="employeeUser" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="userId" header="userId" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="rankId.name" header="rank" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="departmentId.name" header="department" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
+        <EmployeeUserDetailGrid :selectedGrid="selectedGrid" />
         <v-col style="margin-bottom:40px;">
             <div class="text-center">
                 <v-dialog
@@ -70,6 +72,7 @@
 <script>
 import EmployeeVIewQuery from '../components/EmployeeVIewQuery.vue';
 import Employee from '../components/Employee.vue'
+import EmployeeUserDetailGrid from './EmployeeUserDetailGrid.vue'
 
 const axios = require('axios').default;
 
@@ -90,6 +93,7 @@ export default {
     components:{
         EmployeeVIewQuery,
         Employee,
+        EmployeeUserDetailGrid,
     },
     data: () => ({
         tick : true,
@@ -146,7 +150,7 @@ export default {
         onSelectionChanged(s) {
             let selectedItem = s.collectionView.currentItem;
             if (selectedItem) {
-                this.selectedGrid = selectedItem;
+                this.selectedGrid = selectedItem.employeeUser;
                 this.selectedGrid = this.selectedGrid.map((user, index) => {
                     return { ...user, index: index };
                 });
